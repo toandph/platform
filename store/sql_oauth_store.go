@@ -48,7 +48,7 @@ func NewSqlOAuthStore(sqlStore *SqlStore) OAuthStore {
 }
 
 func (as SqlOAuthStore) UpgradeSchemaIfNeeded() {
-	as.CreateColumnIfNotExists("OAuthApps", "IsTrusted", "tinyint(1)", "tinyint(1)", "0")
+	as.CreateColumnIfNotExists("OAuthApps", "IsTrusted", "tinyint(1)", "boolean", "0")
 	as.CreateColumnIfNotExists("OAuthApps", "IconURL", "varchar(512)", "varchar(512)", "")
 	as.CreateColumnIfNotExists("OAuthAccessData", "ClientId", "varchar(26)", "varchar(26)", "")
 	as.CreateColumnIfNotExists("OAuthAccessData", "UserId", "varchar(26)", "varchar(26)", "")
